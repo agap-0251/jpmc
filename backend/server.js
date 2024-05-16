@@ -19,7 +19,6 @@ app.get("/",(req,res) => {
 })
 
 app.post("/signup",async (req,res) => {
-    console.log(req)
     const {username,email,password} = req.body;
     console.log(username,email,password)
     try {
