@@ -12,11 +12,14 @@ export default function Signup(){
         console.log(username,password,email)
         const user = await fetch("http://localhost:3000/signup",{
             method : "POST",
+            headers : {
+                "Content-type" : "application/json",
+            },
             body : JSON.stringify({
                username,email,password
             })
         })
-        console.log(await user.json())
+        // console.log(await user.json())
 
         if(user.ok){
             console.log(await user.json())
@@ -32,11 +35,12 @@ export default function Signup(){
     }
 
     return (
-        <div >
-            <form style={{display : "flex",flexDirection : "column",margin : "20px"}}>
-                <input onChange={(e) => setUsername(e.target.value)} value={username} style={{padding : "1rem"}} type="text" placeholder="username" />
-                <input onChange={(e) => setEmail(e.target.value)} value={email} style={{padding : "1rem"}} type="email" placeholder="email" />
-                <input onChange={(e) => setPassword(e.target.value)} value={password} style={{padding : "1rem"}} type="password" placeholder="password" />
+        <div style={{display : "flex",flexDirection : "column",alignItems : "center",backgroundColor : "teal"}}>
+            <h1 style={{fontSize : "2rem"}}>Sign up Form</h1>
+            <form style={{display : "flex",flexDirection : "column",margin : "20px"}} method="POST">
+                <input onChange={(e) => setUsername(e.target.value)} value={username} style={{padding : "0.7rem 1rem",margin : "10px 0"}} type="text" placeholder="username" />
+                <input onChange={(e) => setEmail(e.target.value)} value={email} style={{padding : "0.7rem 1rem",margin : "10px 0"}} type="email" placeholder="email" />
+                <input onChange={(e) => setPassword(e.target.value)} value={password} style={{padding : "0.7rem 1rem",margin : "10px 0"}} type="password" placeholder="password" />
                 <button style={{backgroundColor : "black",color : "white"}} type="button" disabled = {isLoading} onClick={sendData}>Submit</button>
             </form>
         </div>
