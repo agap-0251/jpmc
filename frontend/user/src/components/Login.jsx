@@ -40,12 +40,12 @@ export default function Login(){
     }
 
     return (
-        <div style={{display : "flex",flexDirection : "column",alignItems : "center",backgroundColor : "teal"}}>
+        <div className="flex flex-col items-center justify-evenly bg-slate-700 w-[19rem] h-[22rem] rounded-xl shadow-sm shadow-slate-100">
             <h1 style={{fontSize : "2rem"}}>Login Form</h1>
-            <form style={{display : "flex",flexDirection : "column",margin : "20px"}} method="POST">
-                <input onChange={(e) => setEmail(e.target.value)} value={email} style={{padding : "0.7rem 1rem",margin : "10px 0"}} type="email" placeholder="email" />
-                <input onChange={(e) => setPassword(e.target.value)} value={password} style={{padding : "0.7rem 1rem",margin : "10px 0"}} type="password" placeholder="password" />
-                <button style={{backgroundColor : "black",color : "white"}} type="button" disabled = {isLoading} onClick={sendData}>Submit</button>
+            <form className="flex flex-col m-[20px] justify-evenly h-[15rem]" method="POST">
+                <input onChange={(e) => setEmail(e.target.value)} value={email} className="px-[1rem] py-[0.4rem] my-[2px] rounded-md text-black" type="email" placeholder="email" />
+                <input onChange={(e) => setPassword(e.target.value)} value={password} className="px-[1rem] py-[0.4rem] my-[2px] rounded-md text-black" type="password" placeholder="password" />
+                <button className="bg-black text-white py-2 rounded-md" type="button" disabled = {isLoading} onClick={sendData}>Submit</button>
             </form>
         </div>
     )

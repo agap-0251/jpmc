@@ -1,18 +1,16 @@
-import { useEffect, useState } from 'react'
-import {BrowserRouter as Router,Routes,Route, NavLink, Link} from "react-router-dom"
-import './App.css'
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import LandingPage from './pages/LandingPage'
 import Home from './pages/Home'
+import MainContainer from './components/MainContainer'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div style={{display : "flex",flexDirection : "column"}}>
+    <div className='text-white min-h-full'>
       <Router>
         <Routes>
-          <Route path='/' element={<LandingPage />} />
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={ <MainContainer children={<LandingPage /> } />} />
+          <Route path='/home' element={ <MainContainer children={<Home /> } />} />
         </Routes>
       </Router>
     </div>

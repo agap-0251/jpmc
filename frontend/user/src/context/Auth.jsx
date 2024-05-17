@@ -17,7 +17,7 @@ export const authReducer = (state,action) => {
 
 export const Auth = ({children}) => {
     const [state,dispatch] = useReducer(authReducer,{
-        user : null
+        user : localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user"))  : null
     })
 
     return (

@@ -9,12 +9,12 @@ const Home = () => {
         if(user === null){
             nav("/")
         }
-
-        console.log(user)
     },[])
 
   return (
-    <div style={{fontSize : "2rem",color : "white"}}>Welcome {user?.username}</div>
+    <div className='text-white text-[2rem] min-h-[100dvh] flex flex-col items-center justify-center' >
+      <h1>Welcome {user?.username}</h1>
+    </div>
   )
 }
 
